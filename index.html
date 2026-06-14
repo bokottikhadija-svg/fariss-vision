@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fariss Vision | Haute Lunetterie d'Exception</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cormorant Garamond for elegant serif & Inter for modern details -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bordeaux: '#58111A', // Deep Cartier Bordeaux
+                            bordeauxDark: '#3D0B11',
+                            gold: '#D4AF37',     // Pure Metallic Gold
+                            goldLight: '#F3E5AB', // Soft Champagne gold
+                            champagne: '#FAF6F0', // Soft editorial background
+                            charcoal: '#141414',  // Premium Dark obsidian
+                            clay: '#8C6F4C'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF6F0;
+            color: #141414;
+        }
+        .luxury-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF6F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #58111A;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+        /* Glassmorphism card utility */
+        .glass {
+            background: rgba(250, 246, 240, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        /* Custom premium animations */
+        @keyframes subtle-pulse {
+            0%, 100% { transform: scale(1.02); }
+            50% { transform: scale(1); }
+        }
+        .animate-subtle {
+            animation: subtle-pulse 10s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased">
+
+    <!-- Top Micro-bar -->
+    <div class="bg-brand-bordeaux text-brand-goldLight text-[10px] py-2.5 px-4 tracking-[0.25em] uppercase text-center font-medium border-b border-brand-gold/15">
+        Livraison offerte assurée par transporteur privé • Prendre rendez-vous dans nos salons de prestige
+    </div>
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="sticky top-0 z-40 w-full transition-all duration-500 border-b border-brand-gold/10 glass">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+            
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-brand-charcoal hover:text-brand-gold transition duration-300" aria-label="Menu">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+
+            <!-- Brand Logo Center-Left -->
+            <div class="flex items-center">
+                <a href="#" class="group flex flex-col items-center">
+                    <span class="luxury-serif text-2xl lg:text-3xl font-light tracking-[0.25em] text-brand-bordeaux group-hover:text-brand-gold transition-colors duration-500">
+                        FARISS
+                    </span>
+                    <span class="text-[9px] tracking-[0.6em] text-brand-gold uppercase font-light -mt-1 block">
+                        VISION
+                    </span>
+                </a>
+            </div>
+
+            <!-- Main Menu Links -->
+            <nav class="hidden lg:flex items-center space-x-12">
+                <a href="#collections" class="luxury-serif text-lg tracking-widest text-brand-charcoal hover:text-brand-gold transition duration-300 relative group">
+                    Collections
+                    <span class="absolute bottom-[-4px] left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#try-on" class="luxury-serif text-lg tracking-widest hover:text-brand-gold transition duration-300 relative group text-brand-bordeaux font-medium">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xs text-brand-gold"></i> Miroir Virtuel Haute Définition
+                    </span>
+                    <span class="absolute bottom-[-4px] left-0 w-0 h-[1px] bg-brand-bordeaux transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#heritage" class="luxury-serif text-lg tracking-widest text-brand-charcoal hover:text-brand-gold transition duration-300 relative group">
+                    Savoir-Faire
+                    <span class="absolute bottom-[-4px] left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#appointments" class="luxury-serif text-lg tracking-widest text-brand-charcoal hover:text-brand-gold transition duration-300 relative group">
+                    Salons Privés
+                    <span class="absolute bottom-[-4px] left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <!-- Quick Utilities (Search, Cart, Appointment) -->
+            <div class="flex items-center space-x-6 text-brand-charcoal">
+                <!-- Search Button -->
+                <button onclick="toggleSearch()" class="hover:text-brand-gold transition duration-300 hidden sm:inline-block" aria-label="Recherche">
+                    <i class="fa-solid fa-magnifying-glass text-lg font-light"></i>
+                </button>
+                
+                <!-- Appointment Link -->
+                <a href="#appointments" class="hidden md:inline-flex items-center space-x-2 text-[10px] tracking-[0.2em] uppercase border border-brand-gold/30 hover:border-brand-bordeaux hover:bg-brand-bordeaux hover:text-white px-5 py-2.5 rounded-sm transition-all duration-500">
+                    <i class="fa-regular fa-calendar-check text-xs"></i>
+                    <span>Prendre RDV</span>
+                </a>
+
+                <!-- Cart Button with badge -->
+                <button onclick="toggleCartDrawer()" class="relative hover:text-brand-gold transition duration-300 flex items-center" aria-label="Panier">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-brand-bordeaux text-white text-[9px] w-5 h-5 rounded-full flex items-center justify-center font-semibold opacity-0 transition-opacity duration-300">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-charcoal/85 z-50 transform -translate-x-full transition-transform duration-500 ease-in-out lg:hidden">
+        <div class="w-80 h-full bg-brand-champagne p-8 flex flex-col justify-between border-r border-brand-gold/20">
+            <div>
+                <div class="flex items-center justify-between mb-12">
+                    <span class="luxury-serif text-2xl tracking-widest text-brand-bordeaux font-bold">FARISS VISION</span>
+                    <button onclick="toggleMobileMenu()" class="text-brand-charcoal text-2xl hover:text-brand-gold">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-6">
+                    <a href="#collections" onclick="toggleMobileMenu()" class="luxury-serif text-xl tracking-wide hover:text-brand-gold transition">Nos Collections</a>
+                    <a href="#try-on" onclick="toggleMobileMenu()" class="luxury-serif text-xl tracking-wide text-brand-bordeaux font-semibold hover:text-brand-gold transition"><i class="fa-solid fa-wand-magic-sparkles mr-2 text-sm"></i> Miroir Virtuel</a>
+                    <a href="#heritage" onclick="toggleMobileMenu()" class="luxury-serif text-xl tracking-wide hover:text-brand-gold transition">Le Savoir-Faire</a>
+                    <a href="#appointments" onclick="toggleMobileMenu()" class="luxury-serif text-xl tracking-wide hover:text-brand-gold transition">Prendre Rendez-vous</a>
+                </div>
+            </div>
+            <div class="border-t border-brand-gold/20 pt-8">
+                <p class="text-xs text-brand-charcoal/60 tracking-wider mb-4"><i class="fa-solid fa-location-dot mr-2"></i> Place Vendôme, Paris</p>
+                <div class="flex space-x-4 text-brand-bordeaux">
+                    <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+                    <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-pinterest text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Search Overlay -->
+    <div id="search-overlay" class="fixed inset-0 bg-brand-charcoal/95 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <button onclick="toggleSearch()" class="absolute top-8 right-8 text-brand-champagne hover:text-brand-gold text-3xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="w-full max-w-2xl px-6 text-center">
+            <h3 class="luxury-serif text-3xl text-brand-champagne mb-8 tracking-widest">Que recherchez-vous ?</h3>
+            <div class="relative border-b border-brand-gold/40 py-4">
+                <input type="text" placeholder="Lunettes de soleil en or massif, monture panthère..." class="w-full bg-transparent text-brand-champagne text-2xl text-center placeholder-brand-champagne/30 outline-none focus:placeholder-transparent transition-all">
+                <button class="absolute right-0 top-1/2 -translate-y-1/2 text-brand-gold text-2xl hover:text-brand-champagne">
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </button>
+            </div>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+                <span class="text-xs uppercase tracking-widest text-brand-champagne/50 px-4 py-1.5 border border-brand-champagne/10 rounded-full cursor-pointer hover:border-brand-gold hover:text-brand-gold transition">Collection Or 18K</span>
+                <span class="text-xs uppercase tracking-widest text-brand-champagne/50 px-4 py-1.5 border border-brand-champagne/10 rounded-full cursor-pointer hover:border-brand-gold hover:text-brand-gold transition">Solaire Homme d'Exception</span>
+                <span class="text-xs uppercase tracking-widest text-brand-champagne/50 px-4 py-1.5 border border-brand-champagne/10 rounded-full cursor-pointer hover:border-brand-gold hover:text-brand-gold transition">Signature Acétate d'Italie</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Slider / Editorial Banner Section -->
+    <section class="relative h-[90vh] flex items-center overflow-hidden bg-brand-charcoal text-white">
+        <!-- Visual Background with luxury model focus -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=1800&q=80" 
+                 alt="Mannequin Haute Lunetterie" 
+                 class="w-full h-full object-cover object-center opacity-45 scale-100 animate-subtle transition-transform duration-[10000ms]"
+                 onerror="this.src='https://placehold.co/1800x1000/2A1215/D4AF37?text=Fariss+Vision+Haute+Couture'">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-charcoal via-brand-charcoal/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal to-transparent opacity-60"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-8 animate-[fadeIn_1.5s_ease-out]">
+                <div class="space-y-4">
+                    <span class="text-xs lg:text-sm font-medium uppercase tracking-[0.5em] text-brand-gold block">
+                        La Haute Couture Lunetière Parisienne
+                    </span>
+                    <h1 class="luxury-serif text-5xl lg:text-8xl font-light leading-tight tracking-wide">
+                        L'art de voir <br>
+                        <span class="font-normal italic text-brand-gold">avec distinction.</span>
+                    </h1>
+                </div>
+                <div class="w-24 h-[1px] bg-brand-gold"></div>
+                <p class="text-brand-champagne/80 font-light text-base lg:text-xl max-w-lg leading-relaxed">
+                    Découvrez une collection de lunettes de prestige inspirée de la joaillerie fine. Façonnées d'or pur, de titane d'aviation et d'acétates d'exception.
+                </p>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+                    <a href="#collections" class="bg-brand-gold text-brand-charcoal hover:bg-brand-bordeaux hover:text-white px-8 py-4.5 text-xs font-semibold tracking-[0.25em] uppercase rounded-sm transition-all duration-500 shadow-xl text-center">
+                        Découvrir les Collections
+                    </a>
+                    <a href="#try-on" class="border border-white/35 hover:border-brand-gold hover:bg-white/5 px-8 py-4.5 text-xs font-semibold tracking-[0.25em] uppercase rounded-sm text-center transition-all duration-500 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles text-brand-gold animate-pulse"></i>
+                        <span>Essai Miroir HD</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Elegant Side Editorial Feature -->
+            <div class="hidden lg:col-span-5 lg:flex justify-end">
+                <div class="bg-brand-charcoal/70 border border-brand-gold/25 p-8 rounded-sm backdrop-blur-md max-w-sm text-center space-y-6 hover:border-brand-gold transition-colors duration-700">
+                    <div class="border-b border-brand-gold/15 pb-4">
+                        <span class="text-[10px] uppercase tracking-widest text-brand-gold">Signature de la Saison</span>
+                        <h4 class="luxury-serif text-2xl font-normal text-brand-champagne mt-1">L'Impérial Or Rose</h4>
+                    </div>
+                    <p class="text-xs text-brand-champagne/70 font-light leading-relaxed">
+                        Châssis sculpté en titane poli plaqué or rose 18 carats, verres solaires dégradés bruns dotés d'un traitement anti-reflet d'exception.
+                    </p>
+                    <div class="flex items-center justify-between pt-2">
+                        <span class="text-brand-gold font-light tracking-widest">740,00 €</span>
+                        <button onclick="addToCart(2)" class="text-[10px] font-semibold uppercase tracking-widest hover:text-brand-gold text-brand-champagne transition duration-300">
+                            Ajouter à l'écrin <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Philosophy / Craftsmanship -->
+    <section id="heritage" class="py-28 bg-brand-champagne/50 border-y border-brand-gold/15">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-20 space-y-5">
+                <span class="text-xs uppercase tracking-[0.35em] text-brand-bordeaux font-semibold block">Une Tradition d'Élite</span>
+                <h2 class="luxury-serif text-4xl lg:text-6xl font-light">Noblesse des Métaux & Héritage</h2>
+                <div class="w-16 h-[1px] bg-brand-gold mx-auto"></div>
+                <p class="text-brand-charcoal/70 font-light text-base leading-relaxed">
+                    Chaque monture signée Fariss Vision est une promesse d'harmonie entre technologie optique absolue et minutie joaillière de prestige.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Card 1 -->
+                <div class="bg-white border border-brand-gold/10 p-12 rounded-sm text-center hover:shadow-2xl hover:border-brand-gold/40 transition-all duration-500 group">
+                    <div class="w-16 h-16 bg-brand-bordeaux text-brand-gold flex items-center justify-center rounded-full mx-auto mb-8 group-hover:bg-brand-gold group-hover:text-brand-bordeaux transition-all duration-500 shadow-md">
+                        <i class="fa-solid fa-gem text-xl"></i>
+                    </div>
+                    <h3 class="luxury-serif text-2xl mb-4 font-semibold tracking-wide text-brand-charcoal">Or & Pierres Fines</h3>
+                    <p class="text-brand-charcoal/70 text-sm font-light leading-relaxed">
+                        Sélection d'or jaune, blanc et rose 18 carats, ciselés sur les charnières par nos maîtres artisans joailliers d'art.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white border border-brand-gold/10 p-12 rounded-sm text-center hover:shadow-2xl hover:border-brand-gold/40 transition-all duration-500 group">
+                    <div class="w-16 h-16 bg-brand-bordeaux text-brand-gold flex items-center justify-center rounded-full mx-auto mb-8 group-hover:bg-brand-gold group-hover:text-brand-bordeaux transition-all duration-500 shadow-md">
+                        <i class="fa-solid fa-compass-drafting text-xl"></i>
+                    </div>
+                    <h3 class="luxury-serif text-2xl mb-4 font-semibold tracking-wide text-brand-charcoal">Lignes Architecturales</h3>
+                    <p class="text-brand-charcoal/70 text-sm font-light leading-relaxed">
+                        Des designs géométriques purs, inspirés de la haute joaillerie classique française, conférant un port de tête royal.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white border border-brand-gold/10 p-12 rounded-sm text-center hover:shadow-2xl hover:border-brand-gold/40 transition-all duration-500 group">
+                    <div class="w-16 h-16 bg-brand-bordeaux text-brand-gold flex items-center justify-center rounded-full mx-auto mb-8 group-hover:bg-brand-gold group-hover:text-brand-bordeaux transition-all duration-500 shadow-md">
+                        <i class="fa-solid fa-eye text-xl"></i>
+                    </div>
+                    <h3 class="luxury-serif text-2xl mb-4 font-semibold tracking-wide text-brand-charcoal">Clarté Cristalline</h3>
+                    <p class="text-brand-charcoal/70 text-sm font-light leading-relaxed">
+                        Verres de dernière génération dotés de traitements anti-reflets exclusifs et de filtres protecteurs haute définition.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- High-Definition Interactive Virtual Try-On Section -->
+    <section id="try-on" class="py-28 bg-[#0F0F0F] text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Left Details & Selections -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-[0.4em] text-brand-gold font-semibold flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping"></span>
+                            Immersive Studio HD
+                        </span>
+                        <h2 class="luxury-serif text-4xl lg:text-6xl font-light leading-tight">
+                            Le Miroir Virtuel <br>
+                            <span class="italic text-brand-gold font-normal">Fariss Precision</span>
+                        </h2>
+                        <div class="w-16 h-[1px] bg-brand-gold"></div>
+                        <p class="text-brand-champagne/70 font-light text-sm lg:text-base leading-relaxed">
+                            Ajustez virtuellement nos créations exclusives de haute lunetterie sur nos portraits modèles ou importez votre propre photo. Ajustez l'orientation, la taille et l'échelle pour trouver la parure parfaite.
+                        </p>
+                    </div>
+
+                    <!-- Step Selection (1. Choose Model, 2. Choose Frame) -->
+                    <div class="space-y-6">
+                        <!-- Choose Model Portrait -->
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-gold block mb-3 font-medium">1. Sélectionnez votre modèle d'essai</span>
+                            <div class="flex items-center gap-4">
+                                <button onclick="changeTryOnModel('model-woman')" class="w-16 h-16 rounded-full border-2 border-brand-gold overflow-hidden transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" alt="Modèle Femme" class="w-full h-full object-cover">
+                                </button>
+                                <button onclick="changeTryOnModel('model-man')" class="w-16 h-16 rounded-full border-2 border-transparent hover:border-brand-gold overflow-hidden transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="Modèle Homme" class="w-full h-full object-cover">
+                                </button>
+                                <!-- Upload own Photo -->
+                                <label class="w-16 h-16 rounded-full border-2 border-dashed border-brand-champagne/30 flex flex-col items-center justify-center cursor-pointer hover:border-brand-gold hover:text-brand-gold transition-all duration-300 relative">
+                                    <i class="fa-solid fa-camera text-sm"></i>
+                                    <span class="text-[8px] uppercase tracking-tighter mt-1">Photo</span>
+                                    <input type="file" id="user-upload-photo" class="hidden" accept="image/*" onchange="handleUserPhotoUpload(event)">
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Choose Frame -->
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-gold block mb-3 font-medium">2. Choisissez la monture de prestige</span>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="selectTryOnFrame('frame-classic')" id="btn-frame-classic" class="bg-brand-charcoal border border-brand-gold p-4 rounded text-left hover:bg-black transition-all flex flex-col justify-between">
+                                    <span class="text-[11px] uppercase tracking-widest text-brand-gold font-semibold">Le Lagon</span>
+                                    <span class="text-[10px] font-light text-brand-champagne/50 mt-1">Or Jaune & Émeraude</span>
+                                </button>
+                                <button onclick="selectTryOnFrame('frame-luxury')" id="btn-frame-luxury" class="bg-brand-charcoal border border-transparent p-4 rounded text-left hover:bg-black transition-all flex flex-col justify-between">
+                                    <span class="text-[11px] uppercase tracking-widest text-brand-gold font-semibold">L'Impérial</span>
+                                    <span class="text-[10px] font-light text-brand-champagne/50 mt-1">Or Rose & Verre Brun</span>
+                                </button>
+                                <button onclick="selectTryOnFrame('frame-panthere')" id="btn-frame-panthere" class="bg-brand-charcoal border border-transparent p-4 rounded text-left hover:bg-black transition-all flex flex-col justify-between">
+                                    <span class="text-[11px] uppercase tracking-widest text-brand-gold font-semibold">La Panthère</span>
+                                    <span class="text-[10px] font-light text-brand-champagne/50 mt-1">Acétate Écaille Ébène</span>
+                                </button>
+                                <button onclick="selectTryOnFrame('frame-essential')" id="btn-frame-essential" class="bg-brand-charcoal border border-transparent p-4 rounded text-left hover:bg-black transition-all flex flex-col justify-between">
+                                    <span class="text-[11px] uppercase tracking-widest text-brand-gold font-semibold">L'Aéro</span>
+                                    <span class="text-[10px] font-light text-brand-champagne/50 mt-1">Titane Platine</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fine-tune controls -->
+                    <div class="bg-brand-charcoal p-6 border border-brand-gold/15 rounded-sm space-y-4">
+                        <span class="text-xs uppercase tracking-widest text-brand-gold block font-semibold"><i class="fa-solid fa-sliders mr-2"></i> Ajustements millimétrés</span>
+                        
+                        <!-- Scale Slider -->
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-xs text-brand-champagne/75 uppercase w-20">Échelle</span>
+                            <input type="range" id="frame-scale-slider" min="60" max="140" value="100" oninput="adjustFrameStyle()" class="w-full accent-brand-gold h-1 bg-brand-charcoal border border-brand-gold/25 rounded-lg appearance-none cursor-pointer">
+                        </div>
+
+                        <!-- Y-offset Slider -->
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-xs text-brand-champagne/75 uppercase w-20">Hauteur</span>
+                            <input type="range" id="frame-y-slider" min="-80" max="80" value="0" oninput="adjustFrameStyle()" class="w-full accent-brand-gold h-1 bg-brand-charcoal border border-brand-gold/25 rounded-lg appearance-none cursor-pointer">
+                        </div>
+
+                        <!-- Rotation Slider -->
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-xs text-brand-champagne/75 uppercase w-20">Inclinaison</span>
+                            <input type="range" id="frame-rot-slider" min="-20" max="20" value="0" oninput="adjustFrameStyle()" class="w-full accent-brand-gold h-1 bg-brand-charcoal border border-brand-gold/25 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Live Preview Screen with Drop Shadows and Real metallic gradients -->
+                <div class="lg:col-span-7 flex flex-col items-center">
+                    <div class="relative w-full max-w-md aspect-[3/4] rounded-sm overflow-hidden border border-brand-gold/20 shadow-2xl bg-brand-charcoal flex items-center justify-center">
+                        
+                        <!-- Main Model Image -->
+                        <img id="try-on-background" 
+                             src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&h=800&q=80" 
+                             alt="Live Mirror Canvas" 
+                             class="absolute inset-0 w-full h-full object-cover pointer-events-none transition-all duration-500">
+                        
+                        <!-- Dynamic Vector Layer with dropshadow filter for extreme realism -->
+                        <div id="try-on-frame-container" class="absolute w-52 h-16 pointer-events-none transition-transform duration-100 ease-out flex items-center justify-center" style="transform: translate(0px, 0px) scale(1) rotate(0deg); filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.45));">
+                            
+                            <!-- VECTOR FRAME 1: Classic Aviator Emerald with realistic gradients and glass flare -->
+                            <svg id="svg-frame-classic" class="w-full h-full" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#bf953f" />
+                                        <stop offset="25%" stop-color="#fcf6ba" />
+                                        <stop offset="50%" stop-color="#b38728" />
+                                        <stop offset="75%" stop-color="#fbf5b7" />
+                                        <stop offset="100%" stop-color="#aa771c" />
+                                    </linearGradient>
+                                    <linearGradient id="emeraldGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#0b5f30" stop-opacity="0.75" />
+                                        <stop offset="100%" stop-color="#023010" stop-opacity="0.85" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Bridge & Temples -->
+                                <path d="M72 21 C85 13, 115 13, 128 21" stroke="url(#goldGrad1)" stroke-width="2.5" fill="none"/>
+                                <path d="M68 25 C82 25, 118 25, 132 25" stroke="url(#goldGrad1)" stroke-width="1.2" fill="none"/>
+                                <path d="M8 24 C30 24, 45 24, 48 26" stroke="url(#goldGrad1)" stroke-width="2" fill="none"/>
+                                <path d="M192 24 C170 24, 155 24, 152 26" stroke="url(#goldGrad1)" stroke-width="2" fill="none"/>
+                                <!-- Left Rim and Lens -->
+                                <rect x="46" y="16" width="38" height="34" rx="14" stroke="url(#goldGrad1)" stroke-width="2.5" fill="url(#emeraldGlass)"/>
+                                <path d="M48 20 L78 50" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/> <!-- Glass reflection flare -->
+                                <!-- Right Rim and Lens -->
+                                <rect x="116" y="16" width="38" height="34" rx="14" stroke="url(#goldGrad1)" stroke-width="2.5" fill="url(#emeraldGlass)"/>
+                                <path d="M118 20 L148 50" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/> <!-- Glass reflection flare -->
+                                <!-- Little Emerald Stud Accents -->
+                                <circle cx="43" cy="22" r="2.5" fill="#50C878" stroke="url(#goldGrad1)" stroke-width="0.8"/>
+                                <circle cx="157" cy="22" r="2.5" fill="#50C878" stroke="url(#goldGrad1)" stroke-width="0.8"/>
+                            </svg>
+
+                            <!-- VECTOR FRAME 2: Luxury Imperial Or Rose with brown gradient lenses & gold rims -->
+                            <svg id="svg-frame-luxury" class="w-full h-full hidden" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="roseGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#b76e79" />
+                                        <stop offset="40%" stop-color="#ffd1dc" />
+                                        <stop offset="70%" stop-color="#ea9399" />
+                                        <stop offset="100%" stop-color="#8c4b53" />
+                                    </linearGradient>
+                                    <linearGradient id="brownGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#54311c" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#1c0f07" stop-opacity="0.9" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M74 23 C85 16, 115 16, 126 23" stroke="url(#roseGoldGrad)" stroke-width="3.2" fill="none"/>
+                                <path d="M5 24 L45 24" stroke="url(#roseGoldGrad)" stroke-width="2" fill="none"/>
+                                <path d="M155 24 L195 24" stroke="url(#roseGoldGrad)" stroke-width="2" fill="none"/>
+                                <!-- Perfect elegant rounds -->
+                                <circle cx="65" cy="27" r="19" stroke="url(#roseGoldGrad)" stroke-width="3" fill="url(#brownGlass)"/>
+                                <path d="M52 18 L74 40" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.25"/>
+                                <circle cx="135" cy="27" r="19" stroke="url(#roseGoldGrad)" stroke-width="3" fill="url(#brownGlass)"/>
+                                <path d="M122 18 L144 40" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.25"/>
+                            </svg>
+
+                            <!-- VECTOR FRAME 3: Cat-Eye Panther Tortoise with high gloss acetate shell -->
+                            <svg id="svg-frame-panthere" class="w-full h-full hidden" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="tortoiseShell" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#2a1608" />
+                                        <stop offset="30%" stop-color="#5c3214" />
+                                        <stop offset="50%" stop-color="#945821" />
+                                        <stop offset="80%" stop-color="#402008" />
+                                        <stop offset="100%" stop-color="#1c0a01" />
+                                    </linearGradient>
+                                    <linearGradient id="darkLens" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#262626" stop-opacity="0.85" />
+                                        <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0.95" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M70 19 C85 13, 115 13, 130 19" stroke="#2a1608" stroke-width="3" fill="none"/>
+                                <!-- Left bold acetate wing -->
+                                <path d="M38 12 C54 11, 88 18, 85 36 C83 48, 58 48, 46 44 C34 40, 28 20, 38 12 Z" stroke="url(#tortoiseShell)" stroke-width="4" fill="url(#darkLens)" />
+                                <path d="M38 15 L70 30" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.25"/>
+                                <!-- Right bold acetate wing -->
+                                <path d="M162 12 C146 11, 112 18, 115 36 C117 48, 142 48, 154 44 C166 40, 172 20, 162 12 Z" stroke="url(#tortoiseShell)" stroke-width="4" fill="url(#darkLens)" />
+                                <path d="M130 15 L162 30" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.25"/>
+                                <!-- Shiny gold panther head joints -->
+                                <circle cx="34" cy="15" r="2.5" fill="#D4AF37"/>
+                                <circle cx="166" cy="15" r="2.5" fill="#D4AF37"/>
+                            </svg>
+
+                            <!-- VECTOR FRAME 4: Aero-Titane Platine thin structure & blue filter optical glass -->
+                            <svg id="svg-frame-essential" class="w-full h-full hidden" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="platGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#7f8c8d" />
+                                        <stop offset="50%" stop-color="#bdc3c7" />
+                                        <stop offset="100%" stop-color="#95a5a6" />
+                                    </linearGradient>
+                                    <linearGradient id="blueLightFilter" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#3498db" stop-opacity="0.15" />
+                                        <stop offset="50%" stop-color="#ffffff" stop-opacity="0.05" />
+                                        <stop offset="100%" stop-color="#9b59b6" stop-opacity="0.1" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M72 19 L128 19" stroke="url(#platGrad)" stroke-width="2" fill="none"/>
+                                <!-- Thin geometric titanium structure -->
+                                <rect x="42" y="14" width="46" height="28" rx="4" stroke="url(#platGrad)" stroke-width="1.5" fill="url(#blueLightFilter)"/>
+                                <path d="M44 17 L86 38" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity="0.25"/>
+                                <rect x="112" y="14" width="46" height="28" rx="4" stroke="url(#platGrad)" stroke-width="1.5" fill="url(#blueLightFilter)"/>
+                                <path d="M114 17 L156 38" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity="0.25"/>
+                                <path d="M10 19 L42 19" stroke="url(#platGrad)" stroke-width="1.2" fill="none"/>
+                                <path d="M158 19 L190 19" stroke="url(#platGrad)" stroke-width="1.2" fill="none"/>
+                            </svg>
+
+                        </div>
+
+                        <!-- Active watermark -->
+                        <div class="absolute bottom-4 left-4 bg-brand-charcoal/90 border border-brand-gold/35 px-4 py-1.5 rounded-sm text-[10px] tracking-widest uppercase flex items-center gap-2">
+                            <i class="fa-solid fa-camera text-brand-gold"></i> Fariss Live Mirror Studio
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 mt-6">
+                        <button onclick="resetMirror()" class="text-xs uppercase tracking-[0.2em] text-brand-gold hover:text-white transition duration-300">
+                            <i class="fa-solid fa-arrow-rotate-left mr-1.5"></i> Réinitialiser l'ajustement
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Catalog Grid Section -->
+    <section id="collections" class="py-28 max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+            <span class="text-xs uppercase tracking-[0.4em] text-brand-bordeaux font-semibold block">La Haute Lunetterie d'Art</span>
+            <h2 class="luxury-serif text-4xl lg:text-6xl font-light">Le Catalogue d'Exceptions</h2>
+            <div class="w-16 h-[1px] bg-brand-gold mx-auto"></div>
+            
+            <!-- Dynamic Luxury Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 pt-8">
+                <button onclick="filterProducts('all')" id="filter-all" class="px-6 py-2.5 text-xs uppercase tracking-widest font-semibold border border-brand-bordeaux bg-brand-bordeaux text-white rounded-sm transition-all duration-500">
+                    Toutes les montures
+                </button>
+                <button onclick="filterProducts('solaire')" id="filter-solaire" class="px-6 py-2.5 text-xs uppercase tracking-widest font-semibold border border-brand-gold/20 hover:border-brand-bordeaux rounded-sm transition-all duration-500 text-brand-charcoal hover:text-brand-bordeaux">
+                    Solaires d'Élite
+                </button>
+                <button onclick="filterProducts('optique')" id="filter-optique" class="px-6 py-2.5 text-xs uppercase tracking-widest font-semibold border border-brand-gold/20 hover:border-brand-bordeaux rounded-sm transition-all duration-500 text-brand-charcoal hover:text-brand-bordeaux">
+                    Optiques d'Or
+                </button>
+                <button onclick="filterProducts('acetate')" id="filter-acetate" class="px-6 py-2.5 text-xs uppercase tracking-widest font-semibold border border-brand-gold/20 hover:border-brand-bordeaux rounded-sm transition-all duration-500 text-brand-charcoal hover:text-brand-bordeaux">
+                    Acétates de Prestige
+                </button>
+            </div>
+        </div>
+
+        <!-- Dynamic Product Container with professional premium Unsplash shots of actual eyewear -->
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- Product Item 1: Lagon d'Émeraude (Classic) -->
+            <div class="product-card bg-white border border-brand-gold/15 p-5 rounded-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between group" data-category="solaire">
+                <div class="relative bg-[#FAFAF8] rounded-sm aspect-[4/5] flex items-center justify-center overflow-hidden mb-6 border border-brand-gold/5">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&h=750&q=80" 
+                         alt="Le Lagon d'Émeraude" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-brand-bordeaux text-brand-goldLight text-[9px] tracking-widest uppercase px-3 py-1 rounded-sm font-medium">Or Jaune & Émeraude</span>
+                    <button onclick="openQuickView(1)" class="absolute bottom-4 left-4 right-4 translate-y-16 group-hover:translate-y-0 bg-brand-charcoal/90 text-brand-champagne text-[10px] tracking-widest uppercase py-3 rounded-sm hover:bg-brand-gold hover:text-brand-charcoal transition-all duration-500 text-center">
+                        Aperçu d'Élite
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-brand-clay font-medium block">Série Limitée</span>
+                    <h3 class="luxury-serif text-2xl font-normal hover:text-brand-bordeaux transition-colors text-brand-charcoal">Le Lagon d'Émeraude</h3>
+                    <div class="flex items-center justify-between pt-3 border-t border-brand-gold/10">
+                        <span class="text-brand-bordeaux font-medium tracking-widest">680,00 €</span>
+                        <button onclick="addToCart(1)" class="text-xs uppercase tracking-widest font-semibold hover:text-brand-gold text-brand-charcoal transition-colors">
+                            <i class="fa-solid fa-bag-shopping mr-1"></i> Acquérir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Item 2: L'Impérial (Luxury) -->
+            <div class="product-card bg-white border border-brand-gold/15 p-5 rounded-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between group" data-category="solaire">
+                <div class="relative bg-[#FAFAF8] rounded-sm aspect-[4/5] flex items-center justify-center overflow-hidden mb-6 border border-brand-gold/5">
+                    <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=600&h=750&q=80" 
+                         alt="L'Impérial Or Rose" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-brand-gold text-brand-charcoal text-[9px] tracking-widest uppercase px-3 py-1 rounded-sm font-medium">Or Rose 18K</span>
+                    <button onclick="openQuickView(2)" class="absolute bottom-4 left-4 right-4 translate-y-16 group-hover:translate-y-0 bg-brand-charcoal/90 text-brand-champagne text-[10px] tracking-widest uppercase py-3 rounded-sm hover:bg-brand-gold hover:text-brand-charcoal transition-all duration-500 text-center">
+                        Aperçu d'Élite
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-brand-clay font-medium block">Signature de la Maison</span>
+                    <h3 class="luxury-serif text-2xl font-normal hover:text-brand-bordeaux transition-colors text-brand-charcoal">L'Impérial Or Rose</h3>
+                    <div class="flex items-center justify-between pt-3 border-t border-brand-gold/10">
+                        <span class="text-brand-bordeaux font-medium tracking-widest">740,00 €</span>
+                        <button onclick="addToCart(2)" class="text-xs uppercase tracking-widest font-semibold hover:text-brand-gold text-brand-charcoal transition-colors">
+                            <i class="fa-solid fa-bag-shopping mr-1"></i> Acquérir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Item 3: La Panthère Ébène (Panthere) -->
+            <div class="product-card bg-white border border-brand-gold/15 p-5 rounded-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between group" data-category="acetate">
+                <div class="relative bg-[#FAFAF8] rounded-sm aspect-[4/5] flex items-center justify-center overflow-hidden mb-6 border border-brand-gold/5">
+                    <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=600&h=750&q=80" 
+                         alt="La Panthère Ébène" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-brand-charcoal text-brand-goldLight text-[9px] tracking-widest uppercase px-3 py-1 rounded-sm font-medium">Acétate d'Exception</span>
+                    <button onclick="openQuickView(3)" class="absolute bottom-4 left-4 right-4 translate-y-16 group-hover:translate-y-0 bg-brand-charcoal/90 text-brand-champagne text-[10px] tracking-widest uppercase py-3 rounded-sm hover:bg-brand-gold hover:text-brand-charcoal transition-all duration-500 text-center">
+                        Aperçu d'Élite
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-brand-clay font-medium block">Haute Joaillerie</span>
+                    <h3 class="luxury-serif text-2xl font-normal hover:text-brand-bordeaux transition-colors text-brand-charcoal">La Panthère Ébène</h3>
+                    <div class="flex items-center justify-between pt-3 border-t border-brand-gold/10">
+                        <span class="text-brand-bordeaux font-medium tracking-widest">810,00 €</span>
+                        <button onclick="addToCart(3)" class="text-xs uppercase tracking-widest font-semibold hover:text-brand-gold text-brand-charcoal transition-colors">
+                            <i class="fa-solid fa-bag-shopping mr-1"></i> Acquérir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Item 4: L'Aéro-Titane (Essential) -->
+            <div class="product-card bg-white border border-brand-gold/15 p-5 rounded-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between group" data-category="optique">
+                <div class="relative bg-[#FAFAF8] rounded-sm aspect-[4/5] flex items-center justify-center overflow-hidden mb-6 border border-brand-gold/5">
+                    <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=600&h=750&q=80" 
+                         alt="L'Aéro-Titane" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-[#7f8c8d] text-white text-[9px] tracking-widest uppercase px-3 py-1 rounded-sm font-medium">Titane d'Aviation</span>
+                    <button onclick="openQuickView(4)" class="absolute bottom-4 left-4 right-4 translate-y-16 group-hover:translate-y-0 bg-brand-charcoal/90 text-brand-champagne text-[10px] tracking-widest uppercase py-3 rounded-sm hover:bg-brand-gold hover:text-brand-charcoal transition-all duration-500 text-center">
+                        Aperçu d'Élite
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-brand-clay font-medium block">Haute Couture</span>
+                    <h3 class="luxury-serif text-2xl font-normal hover:text-brand-bordeaux transition-colors text-brand-charcoal">L'Aéro-Titane Platine</h3>
+                    <div class="flex items-center justify-between pt-3 border-t border-brand-gold/10">
+                        <span class="text-brand-bordeaux font-medium tracking-widest">590,00 €</span>
+                        <button onclick="addToCart(4)" class="text-xs uppercase tracking-widest font-semibold hover:text-brand-gold text-brand-charcoal transition-colors">
+                            <i class="fa-solid fa-bag-shopping mr-1"></i> Acquérir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Booking Interactive Appointment Form Section -->
+    <section id="appointments" class="py-28 bg-brand-champagne border-t border-brand-gold/15">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Information content -->
+                <div class="lg:col-span-5 space-y-8">
+                    <span class="text-xs uppercase tracking-[0.35em] text-brand-bordeaux font-semibold block">Prestation Privée</span>
+                    <h2 class="luxury-serif text-4xl lg:text-6xl font-light leading-tight text-brand-charcoal">
+                        Une Séance d'Essai <br>
+                        <span class="italic text-brand-bordeaux font-normal">En Salon Privé</span>
+                    </h2>
+                    <div class="w-16 h-[1px] bg-brand-gold"></div>
+                    <p class="text-brand-charcoal/80 font-light text-base leading-relaxed">
+                        Pour sublimer l'expérience d'acquisition d'une monture Fariss Vision, nous vous accueillons au sein de nos salons confidentiels à Paris, Genève, Monaco et Casablanca. Profitez des conseils de style privilégiés d'un maître visagiste-joaillier dédié.
+                    </p>
+                    <div class="space-y-4 pt-4 border-t border-brand-gold/10">
+                        <div class="flex items-center space-x-3 text-sm text-brand-charcoal/85">
+                            <i class="fa-solid fa-champagne-glasses text-brand-gold"></i>
+                            <span>Coupe de Champagne millésimée d'accueil</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-sm text-brand-charcoal/85">
+                            <i class="fa-solid fa-screwdriver-wrench text-brand-gold"></i>
+                            <span>Ajustement anatomique complet à vos mesures</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-sm text-brand-charcoal/85">
+                            <i class="fa-solid fa-shield-halved text-brand-gold"></i>
+                            <span>Garantie exclusive de 5 ans sur l'or et le titane</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form Card -->
+                <div class="lg:col-span-7 bg-white border border-brand-gold/20 p-8 lg:p-14 rounded-sm shadow-2xl relative overflow-hidden">
+                    <form id="appointment-form" onsubmit="handleAppointmentSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-[10px] uppercase tracking-widest text-brand-charcoal/60 block mb-2 font-medium">Votre Prénom</label>
+                                <input type="text" required class="w-full bg-brand-champagne/35 border-b border-brand-gold/30 p-3 outline-none focus:border-brand-bordeaux transition text-sm">
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase tracking-widest text-brand-charcoal/60 block mb-2 font-medium">Votre Nom</label>
+                                <input type="text" required class="w-full bg-brand-champagne/35 border-b border-brand-gold/30 p-3 outline-none focus:border-brand-bordeaux transition text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-[10px] uppercase tracking-widest text-brand-charcoal/60 block mb-2 font-medium">Adresse E-mail</label>
+                                <input type="email" required class="w-full bg-brand-champagne/35 border-b border-brand-gold/30 p-3 outline-none focus:border-brand-bordeaux transition text-sm">
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase tracking-widest text-brand-charcoal/60 block mb-2 font-medium">Téléphone</label>
+                                <input type="tel" required class="w-full bg-brand-champagne/35 border-b border-brand-gold/30 p-3 outline-none focus:border-brand-bordeaux transition text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-[10px] uppercase tracking-widest text-brand-charcoal/60 block mb-2 font-medium">Sélectionnez votre Salon</label>
+                                <select required class="w-full bg-brand-champagne/35 border-b border-brand-gold/30 p-3 outline-none focus:border-brand-bordeaux transition text-sm cursor-pointer text-brand-charcoal">
+                                    <option value="paris">Salon Vendôme, Paris</option>
+                                    <option value="geneve">Salon du Rhône, Genève</option>
+                                    <option value="monaco">Boulevard des Moulins, Monaco</option>
+                                    <option value="casablanca">Triangle d'Or, Casablanca</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase tracking-widest text-brand-charcoal/60 block mb-2 font-medium">Date souhaitée</label>
+                                <input type="date" required class="w-full bg-brand-champagne/35 border-b border-brand-gold/30 p-3 outline-none focus:border-brand-bordeaux transition text-sm cursor-pointer text-brand-charcoal">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-[10px] uppercase tracking-widest text-brand-charcoal/60 block mb-2 font-medium">Détails spécifiques (Ajustements requis, verres correcteurs...)</label>
+                            <textarea rows="3" class="w-full bg-brand-champagne/35 border-b border-brand-gold/30 p-3 outline-none focus:border-brand-bordeaux transition text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-bordeaux text-white hover:bg-brand-gold hover:text-brand-charcoal py-4.5 text-xs font-semibold tracking-widest uppercase transition-all duration-500 rounded-sm">
+                            Confirmer ma demande de rendez-vous d'exception
+                        </button>
+                    </form>
+                    
+                    <!-- Success screen overlay for Appointment -->
+                    <div id="booking-success" class="hidden flex flex-col items-center justify-center text-center p-8 space-y-6">
+                        <div class="w-20 h-20 bg-brand-gold text-brand-charcoal rounded-full flex items-center justify-center text-3xl shadow-lg">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h3 class="luxury-serif text-3xl lg:text-4xl text-brand-bordeaux font-normal">Votre demande a été enregistrée</h3>
+                        <p class="text-sm font-light text-brand-charcoal/80 max-w-sm leading-relaxed">
+                            Un conseiller de notre salon de haute lunetterie vous contactera personnellement dans les 2 prochaines heures pour finaliser votre venue.
+                        </p>
+                        <button onclick="resetBookingForm()" class="text-xs uppercase tracking-widest border border-brand-gold text-brand-gold px-6 py-3 hover:bg-brand-bordeaux hover:text-white hover:border-brand-bordeaux transition duration-300">
+                            Prendre un autre rendez-vous
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Elegance Testimonials Section -->
+    <section class="py-28 bg-brand-charcoal text-brand-champagne">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-12">
+            <span class="text-brand-gold text-3xl"><i class="fa-solid fa-quote-left"></i></span>
+            
+            <div class="relative overflow-hidden h-48 md:h-36">
+                <!-- Slide 1 -->
+                <div id="testimonial-slide-1" class="transition-all duration-700 ease-in-out">
+                    <p class="luxury-serif text-2xl md:text-4xl font-light italic leading-relaxed max-w-4xl mx-auto text-brand-goldLight">
+                        "En portant l'Impérial en Or Rose de Fariss Vision, je ne porte pas de simples lunettes, je porte une œuvre d'art et un chef-d'œuvre de joaillerie. Le travail du titane est parfait."
+                    </p>
+                    <h5 class="uppercase tracking-[0.2em] text-[10px] font-medium text-brand-gold mt-8">— Éléonore de M., Collectionneuse de Haute Joaillerie</h5>
+                </div>
+                <!-- Slide 2 -->
+                <div id="testimonial-slide-2" class="absolute top-0 left-0 w-full opacity-0 pointer-events-none transition-all duration-700 ease-in-out">
+                    <p class="luxury-serif text-2xl md:text-4xl font-light italic leading-relaxed max-w-4xl mx-auto text-brand-goldLight">
+                        "L'accompagnement au salon de la Place Vendôme est d'une prévenance absolue. Une expérience inoubliable pour acquérir un écrin précieux d'éternité."
+                    </p>
+                    <h5 class="uppercase tracking-[0.2em] text-[10px] font-medium text-brand-gold mt-8">— Charles-Antoine G., Esthète & Entrepreneur</h5>
+                </div>
+            </div>
+
+            <!-- Dots Control -->
+            <div class="flex justify-center space-x-3">
+                <button onclick="showTestimonial(1)" id="t-dot-1" class="w-2.5 h-2.5 rounded-full bg-brand-gold transition-all duration-300"></button>
+                <button onclick="showTestimonial(2)" id="t-dot-2" class="w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-white/40 transition-all duration-300"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Side Drawer -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white border-l border-brand-gold/15 shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between">
+        
+        <!-- Cart Header -->
+        <div class="p-6 border-b border-brand-gold/10 flex items-center justify-between">
+            <div class="flex items-center space-x-2.5 text-brand-bordeaux">
+                <i class="fa-solid fa-bag-shopping text-xl"></i>
+                <h3 class="luxury-serif text-2xl font-semibold tracking-wide">Votre Écrin</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="text-brand-charcoal hover:text-brand-gold text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items Container -->
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6">
+            <!-- Dynamic Injection -->
+            <div class="text-center py-16 text-brand-charcoal/40 font-light text-sm">
+                <i class="fa-solid fa-gem text-3xl mb-4 text-brand-gold/30"></i>
+                <p>Votre précieux écrin est encore vide</p>
+            </div>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-6 border-t border-brand-gold/10 bg-brand-champagne/40 space-y-4">
+            <div class="flex items-center justify-between text-xs tracking-widest uppercase">
+                <span class="text-brand-charcoal/60">Livraison Standard Assurée</span>
+                <span class="font-semibold text-brand-bordeaux">Offerte</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="luxury-serif text-2xl font-light">Estimation totale :</span>
+                <span id="cart-total" class="text-xl font-semibold text-brand-bordeaux">0,00 €</span>
+            </div>
+            <button onclick="checkoutMock()" class="w-full bg-brand-bordeaux text-white hover:bg-brand-gold hover:text-brand-charcoal py-4.5 text-xs font-semibold tracking-widest uppercase transition-all duration-500 rounded-sm">
+                Procéder au règlement hautement sécurisé
+            </button>
+        </div>
+    </div>
+
+    <!-- Quick View / Product Detail Modal -->
+    <div id="quick-view-modal" class="fixed inset-0 bg-brand-charcoal/80 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="relative bg-white max-w-4xl w-full mx-4 rounded-sm border border-brand-gold/20 shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-brand-charcoal hover:text-brand-gold text-2xl z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Product Picture representation in Modal -->
+            <div class="bg-brand-champagne/50 flex flex-col justify-between items-center relative min-h-[350px]">
+                <img id="modal-image" src="" alt="Détail Monture" class="w-full h-full object-cover">
+                <span id="modal-badge" class="absolute top-4 left-4 bg-brand-bordeaux text-white text-[10px] tracking-widest uppercase px-3 py-1 rounded-sm">Or Massif</span>
+                <div class="absolute bottom-4 left-4 right-4 bg-brand-charcoal/80 text-[10px] tracking-widest uppercase text-center py-2 text-brand-champagne border border-brand-gold/20">
+                    <i class="fa-solid fa-shield-halved text-brand-gold"></i> Pièce numérotée garantie à vie
+                </div>
+            </div>
+
+            <!-- Details column -->
+            <div class="p-8 lg:p-12 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <span id="modal-category" class="text-xs uppercase tracking-widest text-brand-gold font-medium">Collection Prestige</span>
+                    <h2 id="modal-title" class="luxury-serif text-3xl font-bold text-brand-bordeaux">Le Lagon d'Émeraude</h2>
+                    <p id="modal-description" class="text-brand-charcoal/80 font-light text-sm lg:text-base leading-relaxed">
+                        Façonné à la main par nos joailliers d'art. Branches ornées de pierres fines précieuses sculptées et polies.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 border-y border-brand-gold/15 py-4 text-xs">
+                        <div>
+                            <span class="block text-brand-charcoal/40 uppercase">Châssis</span>
+                            <span id="modal-chassis" class="font-medium text-brand-charcoal">Or jaune 18 carats</span>
+                        </div>
+                        <div>
+                            <span class="block text-brand-charcoal/40 uppercase">Verres</span>
+                            <span id="modal-glasses" class="font-medium text-brand-charcoal">Filtre UV Haute Précision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <span id="modal-price" class="text-2xl font-light text-brand-bordeaux">680,00 €</span>
+                    <button id="modal-add-btn" class="bg-brand-bordeaux text-white hover:bg-brand-gold hover:text-brand-charcoal px-8 py-3.5 text-xs uppercase tracking-widest font-semibold transition-all duration-300">
+                        Ajouter à l'Écrin
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3 max-w-sm pointer-events-none"></div>
+
+    <!-- Luxury Brand Footer -->
+    <footer class="bg-brand-charcoal text-brand-champagne pt-24 pb-12 border-t border-brand-gold/15">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+            
+            <!-- Logo & Brand Description -->
+            <div class="space-y-6">
+                <div>
+                    <span class="luxury-serif text-2xl font-bold tracking-[0.2em] text-brand-gold">FARISS VISION</span>
+                    <span class="block text-[8px] tracking-[0.6em] text-brand-champagne/40 uppercase mt-1">Haute Joaillerie Visuelle</span>
+                </div>
+                <p class="text-brand-champagne/60 font-light text-xs leading-relaxed">
+                    Depuis sa fondation, la Maison Fariss Vision crée des montures d'exception de haute joaillerie. Un héritage et une tradition de précision à la française.
+                </p>
+                <div class="flex space-x-4 text-brand-champagne/50">
+                    <a href="#" class="hover:text-brand-gold transition duration-300"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="hover:text-brand-gold transition duration-300"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+                    <a href="#" class="hover:text-brand-gold transition duration-300"><i class="fa-brands fa-pinterest text-lg"></i></a>
+                    <a href="#" class="hover:text-brand-gold transition duration-300"><i class="fa-brands fa-youtube text-lg"></i></a>
+                </div>
+            </div>
+
+            <!-- Links: Salons & Boutiques -->
+            <div class="space-y-6">
+                <h4 class="luxury-serif text-lg text-brand-gold tracking-widest uppercase">Nos Salons d'Exception</h4>
+                <ul class="space-y-3 text-xs font-light text-brand-champagne/70">
+                    <li class="hover:text-brand-gold transition duration-300 cursor-pointer"><i class="fa-solid fa-location-dot mr-2 text-brand-gold/50"></i> Place Vendôme, Paris</li>
+                    <li class="hover:text-brand-gold transition duration-300 cursor-pointer"><i class="fa-solid fa-location-dot mr-2 text-brand-gold/50"></i> Rue du Rhône, Genève</li>
+                    <li class="hover:text-brand-gold transition duration-300 cursor-pointer"><i class="fa-solid fa-location-dot mr-2 text-brand-gold/50"></i> Boulevard des Moulins, Monaco</li>
+                    <li class="hover:text-brand-gold transition duration-300 cursor-pointer"><i class="fa-solid fa-location-dot mr-2 text-brand-gold/50"></i> Triangle d'Or, Casablanca</li>
+                </ul>
+            </div>
+
+            <!-- Links: Client Relations -->
+            <div class="space-y-6">
+                <h4 class="luxury-serif text-lg text-brand-gold tracking-widest uppercase">Relation Client</h4>
+                <ul class="space-y-3 text-xs font-light text-brand-champagne/70">
+                    <li class="hover:text-brand-gold transition duration-300 cursor-pointer">Prendre Rendez-vous</li>
+                    <li class="hover:text-brand-gold transition duration-300 cursor-pointer">Garantie & Authenticité</li>
+                    <li class="hover:text-brand-gold transition duration-300 cursor-pointer">Entretien des montures précieuses</li>
+                    <li class="hover:text-brand-gold transition duration-300 cursor-pointer">Livraisons & Retours assurés</li>
+                    <li class="hover:text-brand-gold transition duration-300 cursor-pointer">Foire Aux Questions</li>
+                </ul>
+            </div>
+
+            <!-- Elegant Newsletter Subscription -->
+            <div class="space-y-6">
+                <h4 class="luxury-serif text-lg text-brand-gold tracking-widest uppercase">La Lettre Fariss Vision</h4>
+                <p class="text-brand-champagne/60 font-light text-xs leading-relaxed">
+                    Soyez informés en avant-première du lancement de nos nouvelles collections et des ventes privées de notre Maison.
+                </p>
+                <form onsubmit="handleNewsletterSubmit(event)" class="border-b border-brand-gold/40 py-2 flex items-center justify-between">
+                    <input type="email" placeholder="Votre adresse e-mail de choix" required class="bg-transparent text-xs text-brand-champagne outline-none w-full placeholder-brand-champagne/30 mr-2">
+                    <button type="submit" class="text-brand-gold hover:text-white transition-colors">
+                        <i class="fa-solid fa-arrow-right-long text-base"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 border-t border-brand-gold/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] tracking-widest uppercase text-brand-champagne/40">
+            <span>© 2026 Fariss Vision Haute Lunetterie. Tous droits réservés.</span>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-brand-gold">Mentions Légales</a>
+                <a href="#" class="hover:text-brand-gold">Confidentialité</a>
+                <a href="#" class="hover:text-brand-gold">CGV</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Elegant Script Logic -->
+    <script>
+        // Global State Products featuring real photography from Unsplash
+        const products = [
+            {
+                id: 1,
+                name: "Le Lagon d'Émeraude",
+                category: "solaire",
+                price: 680.00,
+                badge: "Or Jaune & Émeraude",
+                chassis: "Or jaune 18 carats",
+                glasses: "Filtre Vert Joaillier",
+                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80",
+                svgId: "svg-frame-classic",
+                desc: "Façonné délicatement dans nos ateliers. Châssis orné de véritables émeraudes fines taillées en cabochon sur les charnières de la monture."
+            },
+            {
+                id: 2,
+                name: "L'Impérial Or Rose",
+                category: "solaire",
+                price: 740.00,
+                badge: "Or Rose 18K",
+                chassis: "Titane Or Rose",
+                glasses: "Brun Dégradé UV400",
+                image: "https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=800&q=80",
+                svgId: "svg-frame-luxury",
+                desc: "Pièce impériale polie et sculptée dans un titane d'une légèreté et d'une durabilité absolue, plaquée or rose 18 carats. Style aviateur chic indémodable."
+            },
+            {
+                id: 3,
+                name: "La Panthère Ébène",
+                category: "acetate",
+                price: 810.00,
+                badge: "Acétate Écaille Ébène",
+                chassis: "Acétate de Cellulose",
+                glasses: "Gris Fumé Polarizé",
+                image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=800&q=80",
+                svgId: "svg-frame-panthere",
+                desc: "Une sublime monture en acétate haut de gamme façon écaille de panthère sauvage, sublimée par de fines charnières dorées à la française."
+            },
+            {
+                id: 4,
+                name: "L'Aéro-Titane Platine",
+                category: "optique",
+                price: 590.00,
+                badge: "Titane d'Aviation",
+                chassis: "Fil de Titane Platine",
+                glasses: "Filtre Lumière Bleue HD",
+                image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=800&q=80",
+                svgId: "svg-frame-essential",
+                desc: "Idéal pour vos verres correcteurs de précision. Confort absolu assuré par une structure épurée en fil de titane haute résistance."
+            }
+        ];
+
+        let cart = [];
+        let activeTestimonial = 1;
+
+        // Window onload initialization
+        window.onload = function() {
+            adjustFrameStyle();
+            initTestimonialRotator();
+            
+            // Header scroll luxury styling update
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('main-header');
+                if (window.scrollY > 40) {
+                    header.classList.add('shadow-xl', 'py-1', 'h-20');
+                    header.classList.remove('h-24');
+                } else {
+                    header.classList.remove('shadow-xl', 'py-1', 'h-20');
+                    header.classList.add('h-24');
+                }
+            });
+        }
+
+        // Responsive Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if(menu.classList.contains('-translate-x-full')) {
+                menu.classList.remove('-translate-x-full');
+            } else {
+                menu.classList.add('-translate-x-full');
+            }
+        }
+
+        // Search Overlay toggling
+        function toggleSearch() {
+            const search = document.getElementById('search-overlay');
+            if(search.classList.contains('hidden')) {
+                search.classList.remove('hidden');
+                setTimeout(() => search.classList.add('opacity-100'), 50);
+            } else {
+                search.classList.remove('opacity-100');
+                setTimeout(() => search.classList.add('hidden'), 300);
+            }
+        }
+
+        // Cart Drawer
+        function toggleCartDrawer() {
+            const cartDrawer = document.getElementById('cart-drawer');
+            if(cartDrawer.classList.contains('translate-x-full')) {
+                cartDrawer.classList.remove('translate-x-full');
+            } else {
+                cartDrawer.classList.add('translate-x-full');
+            }
+        }
+
+        // Elegant custom brand toast notification system
+        function showNotification(title, message, type = "success") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            toast.className = "bg-brand-charcoal border border-brand-gold p-4.5 shadow-2xl rounded-sm transform translate-y-4 opacity-0 transition-all duration-500 pointer-events-auto flex items-start space-x-3.5";
+            
+            const icon = type === "success" 
+                ? '<i class="fa-solid fa-gem text-brand-gold mt-1"></i>' 
+                : '<i class="fa-solid fa-circle-exclamation text-brand-gold mt-1"></i>';
+
+            toast.innerHTML = `
+                ${icon}
+                <div class="flex-1">
+                    <h5 class="luxury-serif text-brand-gold text-sm font-semibold tracking-wider uppercase">${title}</h5>
+                    <p class="text-[11px] text-brand-champagne/80 font-light mt-0.5">${message}</p>
+                </div>
+                <button class="text-brand-champagne/40 hover:text-brand-gold transition-colors text-xs" onclick="this.parentElement.remove()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            `;
+
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-4', 'opacity-0');
+            }, 15);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-[-12px]');
+                setTimeout(() => toast.remove(), 400);
+            }, 6000);
+        }
+
+        // Shopping Cart Logic
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if(!product) return;
+
+            const cartItem = cart.find(item => item.product.id === productId);
+            if (cartItem) {
+                cartItem.quantity += 1;
+            } else {
+                cart.push({ product: product, quantity: 1 });
+            }
+
+            renderCart();
+            showNotification(
+                "Pièce ajoutée à l'Écrin", 
+                `${product.name} a été déposé avec prévenance dans votre écrin d'achat.`
+            );
+            
+            // Auto open drawer to guide user
+            setTimeout(() => {
+                const drawer = document.getElementById('cart-drawer');
+                drawer.classList.remove('translate-x-full');
+            }, 500);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.product.id !== productId);
+            renderCart();
+            showNotification(
+                "Article Retiré", 
+                "L'article sélectionné a été retiré de votre écrin."
+            );
+        }
+
+        function updateQuantity(productId, change) {
+            const cartItem = cart.find(item => item.product.id === productId);
+            if(cartItem) {
+                cartItem.quantity += change;
+                if(cartItem.quantity <= 0) {
+                    cart = cart.filter(item => item.product.id !== productId);
+                }
+                renderCart();
+            }
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cart-items');
+            const badge = document.getElementById('cart-badge');
+            const totalLabel = document.getElementById('cart-total');
+
+            if(cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-24 text-brand-charcoal/40 font-light text-sm">
+                        <i class="fa-solid fa-gem text-3xl mb-4 text-brand-gold/30"></i>
+                        <p>Votre précieux panier est encore vide</p>
+                    </div>
+                `;
+                badge.classList.add('opacity-0');
+                totalLabel.innerText = "0,00 €";
+                return;
+            }
+
+            const totalCount = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+            badge.innerText = totalCount;
+            badge.classList.remove('opacity-0');
+
+            const totalAmount = cart.reduce((acc, curr) => acc + (curr.product.price * curr.quantity), 0);
+            totalLabel.innerText = totalAmount.toFixed(2).replace('.', ',') + " €";
+
+            let html = '<div class="space-y-6">';
+            cart.forEach(item => {
+                html += `
+                    <div class="flex items-center justify-between border-b border-brand-gold/10 pb-5">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-20 bg-[#FAF9F6] rounded-sm overflow-hidden flex items-center justify-center border border-brand-gold/10">
+                                <img src="${item.product.image}" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="luxury-serif text-md font-semibold text-brand-bordeaux">${item.product.name}</h4>
+                                <span class="text-xs text-brand-charcoal/60">${item.product.price.toFixed(2).replace('.', ',')} €</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="flex items-center border border-brand-gold/30 rounded-sm overflow-hidden text-xs">
+                                <button onclick="updateQuantity(${item.product.id}, -1)" class="px-2 py-1 bg-brand-champagne/40 hover:bg-brand-gold/10 transition">-</button>
+                                <span class="px-3 py-1 font-medium bg-white">${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.product.id}, 1)" class="px-2 py-1 bg-brand-champagne/40 hover:bg-brand-gold/10 transition">+</button>
+                            </div>
+                            <button onclick="removeFromCart(${item.product.id})" class="text-brand-charcoal/40 hover:text-brand-bordeaux transition-colors text-xs">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function checkoutMock() {
+            if(cart.length === 0) {
+                showNotification("Écrin vide", "Veuillez choisir une pièce d'exception avant de passer commande.", "error");
+                return;
+            }
+            showNotification(
+                "Paiement Sécurisé", 
+                "Connexion cryptée en cours avec la banque privée de la Maison..."
+            );
+            setTimeout(() => {
+                cart = [];
+                renderCart();
+                toggleCartDrawer();
+                showNotification(
+                    "Commande Confirmée", 
+                    "Votre commande a été enregistrée. Un conseiller vous contactera pour la livraison par transporteur privé de prestige.",
+                    "success"
+                );
+            }, 2500);
+        }
+
+        // Product categories filter
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = ['all', 'solaire', 'optique', 'acetate'];
+            
+            buttons.forEach(btn => {
+                const element = document.getElementById(`filter-${btn}`);
+                if(btn === category) {
+                    element.className = "px-6 py-2.5 text-xs uppercase tracking-widest font-semibold border border-brand-bordeaux bg-brand-bordeaux text-white rounded-sm transition-all duration-500";
+                } else {
+                    element.className = "px-6 py-2.5 text-xs uppercase tracking-widest font-semibold border border-brand-gold/20 hover:border-brand-bordeaux rounded-sm transition-all duration-500 text-brand-charcoal hover:text-brand-bordeaux";
+                }
+            });
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if(category === 'all' || cardCat === category) {
+                    card.style.opacity = '0';
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                    }, 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Open quick view modal using high quality real product picture
+        function openQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            if(!product) return;
+
+            document.getElementById('modal-title').innerText = product.name;
+            document.getElementById('modal-price').innerText = product.price.toFixed(2).replace('.', ',') + " €";
+            document.getElementById('modal-badge').innerText = product.badge;
+            document.getElementById('modal-description').innerText = product.desc;
+            document.getElementById('modal-chassis').innerText = product.chassis;
+            document.getElementById('modal-glasses').innerText = product.glasses;
+            document.getElementById('modal-category').innerText = `Collection ${product.category.toUpperCase()}`;
+
+            const modalImg = document.getElementById('modal-image');
+            modalImg.src = product.image;
+
+            const addBtn = document.getElementById('modal-add-btn');
+            addBtn.onclick = function() {
+                addToCart(product.id);
+                closeQuickView();
+            };
+
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+            }, 15);
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.remove('opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Live HD Virtual Try-on controllers
+        function changeTryOnModel(modelType) {
+            const bgImage = document.getElementById('try-on-background');
+            const buttons = document.querySelectorAll('#try-on button[onclick*="changeTryOnModel"]');
+            
+            buttons.forEach(btn => {
+                btn.className = "w-16 h-16 rounded-full border-2 border-transparent overflow-hidden transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-gold";
+            });
+
+            if (modelType === 'model-woman') {
+                bgImage.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&h=800&q=80";
+                event.currentTarget.className = "w-16 h-16 rounded-full border-2 border-brand-gold overflow-hidden transition-all duration-300 focus:outline-none";
+            } else if (modelType === 'model-man') {
+                bgImage.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&h=800&q=80";
+                event.currentTarget.className = "w-16 h-16 rounded-full border-2 border-brand-gold overflow-hidden transition-all duration-300 focus:outline-none";
+            }
+        }
+
+        function handleUserPhotoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const bgImage = document.getElementById('try-on-background');
+                bgImage.src = e.target.result;
+                showNotification(
+                    "Votre Portrait Chargé", 
+                    "Votre photo a bien été intégrée. Vous pouvez à présent ajuster nos montures de prestige."
+                );
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Select Try-On frame vector model
+        function selectTryOnFrame(frameId) {
+            const frameSvgIds = ['frame-classic', 'frame-luxury', 'frame-panthere', 'frame-essential'];
+            
+            frameSvgIds.forEach(id => {
+                const btn = document.getElementById(`btn-${id}`);
+                const svg = document.getElementById(`svg-${id}`);
+                if (id === frameId) {
+                    btn.classList.add('border-brand-gold');
+                    btn.classList.remove('border-transparent');
+                    svg.classList.remove('hidden');
+                } else {
+                    btn.classList.remove('border-brand-gold');
+                    btn.classList.add('border-transparent');
+                    svg.classList.add('hidden');
+                }
+            });
+        }
+
+        // Apply scale, yOffset and rotation to the vector frame container with realistic drop shadow
+        function adjustFrameStyle() {
+            const scaleVal = document.getElementById('frame-scale-slider').value;
+            const yVal = document.getElementById('frame-y-slider').value;
+            const rotVal = document.getElementById('frame-rot-slider').value;
+
+            const container = document.getElementById('try-on-frame-container');
+            const scaleFactor = scaleVal / 100;
+            
+            // Translating and scaling vector on face
+            container.style.transform = `translate(0px, ${yVal}px) scale(${scaleFactor}) rotate(${rotVal}deg)`;
+        }
+
+        function resetMirror() {
+            document.getElementById('frame-scale-slider').value = 100;
+            document.getElementById('frame-y-slider').value = 0;
+            document.getElementById('frame-rot-slider').value = 0;
+            adjustFrameStyle();
+            showNotification("Ajustements réinitialisés", "L'échelle, la hauteur et l'inclinaison ont été replacés par défaut.");
+        }
+
+        // Form submissions
+        function handleAppointmentSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('appointment-form');
+            const success = document.getElementById('booking-success');
+            
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+            
+            showNotification(
+                "Salon Privé", 
+                "Votre demande de rendez-vous d'exception a bien été envoyée à notre concierge.",
+                "success"
+            );
+        }
+
+        function resetBookingForm() {
+            document.getElementById('appointment-form').reset();
+            document.getElementById('appointment-form').classList.remove('hidden');
+            document.getElementById('booking-success').classList.add('hidden');
+        }
+
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            event.target.reset();
+            showNotification(
+                "Lettre d'Information", 
+                "Votre adresse e-mail a été consignée de manière confidentielle.",
+                "success"
+            );
+        }
+
+        // Testimonial rotator system
+        function showTestimonial(slideIndex) {
+            const slide1 = document.getElementById('testimonial-slide-1');
+            const slide2 = document.getElementById('testimonial-slide-2');
+            const dot1 = document.getElementById('t-dot-1');
+            const dot2 = document.getElementById('t-dot-2');
+
+            if(slideIndex === 1) {
+                slide1.classList.remove('opacity-0', 'pointer-events-none');
+                slide1.classList.add('relative');
+                slide2.classList.add('opacity-0', 'pointer-events-none');
+                slide2.classList.remove('relative');
+                
+                dot1.className = "w-2.5 h-2.5 rounded-full bg-brand-gold transition-all duration-300";
+                dot2.className = "w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-white/40 transition-all duration-300";
+                activeTestimonial = 1;
+            } else {
+                slide1.classList.add('opacity-0', 'pointer-events-none');
+                slide1.classList.remove('relative');
+                slide2.classList.remove('opacity-0', 'pointer-events-none');
+                slide2.classList.add('relative');
+                
+                dot2.className = "w-2.5 h-2.5 rounded-full bg-brand-gold transition-all duration-300";
+                dot1.className = "w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-white/40 transition-all duration-300";
+                activeTestimonial = 2;
+            }
+        }
+
+        function initTestimonialRotator() {
+            setInterval(() => {
+                const nextSlide = activeTestimonial === 1 ? 2 : 1;
+                showTestimonial(nextSlide);
+            }, 8000);
+        }
+    </script>
+</body>
+</html>
+```
+eof
+
+### Ce qui a changé :
+1. **Photographies Réalistes du Catalogue :** Les anciens graphismes ont été remplacés par de magnifiques images haute résolution de lunettes réelles en situation de studio (or poli, acétate luxueux, verres sombres aux reflets parfaits).
+2. **Miroir Virtuel Réaliste :**
+   * Des dégradés d'or métallique, d'or rose et d'écaille de tortue ont été conçus avec des balises `<linearGradient>`.
+   * Un filtre de verre (`glass lens filter`) avec des éclats de lumière blancs et fins traverse diagonalement chaque verre pour créer une sensation de vraie lunette.
+   * Un effet CSS `filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.45))` applique une ombre portée douce sur le visage du mannequin, comme si les lunettes étaient réellement portées en 3D dans le studio.
+3. **Mise en valeur d'un Design Éditorial "Cartier" :** Des bordures d'or subtiles, des boutons plus aérés et un bordeaux royal puissant qui s'efface devant des photographies artistiques d'exception.
